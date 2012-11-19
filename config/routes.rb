@@ -1,5 +1,29 @@
 App::Application.routes.draw do
-  # The priority is based upon order of creation:
+  get "static_pages/index"
+
+  get "static_pages/about"
+
+  get "static_pages/help"
+
+  # 
+SampleApp::Application.routes.draw do
+root :to => 'static_pages#index‘
+match “/about” => “static_pages#about”
+get "static_pages/home"
+get "static_pages/help“
+resources :static_pages
+
+match “/index” => “static_pages#index"
+get "static_pages/home"
+get "static_pages/help“
+resources :static_pages
+
+match “/help” => “static_pages#help”
+get "static_pages/home"
+get "static_pages/help“
+resources :static_pages
+
+endThe priority is based upon order of creation:
   # first created -> highest priority.
 
   # Sample of regular route:
